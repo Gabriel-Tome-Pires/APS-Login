@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "64834078777",
+    "project_id": "aps-atividade",
+    "storage_bucket": "aps-atividade.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:64834078777:android:c9144cdb778dbfc81de5e8",
+        "android_client_info": {
+          "package_name": "com.example.atividadeaps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "64834078777-mru5kmf6l2muq7lq8eua1235rmub42q2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.atividadeaps",
+            "certificate_hash": "85e006430239a26d426a7b6c93f71e6161b98659"
+          }
+        },
+        {
+          "client_id": "64834078777-d2ojrt4g3e6mru5va7blus5e3l0issr2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdl-2pTRAxmwvVcwVG6q3it8xtXdT_1J4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "64834078777-au5u8r9s2sur8gnuo7lscd8kcig46ans.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
