@@ -1,7 +1,6 @@
 package com.example.atividadeaps;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -37,15 +36,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         auth = FirebaseAuth.getInstance();
-        //gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken("AIzaSyDNIpZ0m4mcqUv1oVDpcI6alg0wZN_ywbk").requestEmail().build();
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail()
                 .requestIdToken(getString(R.string.default_web_client_id)).requestEmail().build();
         gsc = GoogleSignIn.getClient(this, gso);
         Button btnGoogle = findViewById(R.id.btnGoogle);
 
         btnGoogle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            @Override            public void onClick(View v) {
                 singIn();
             }
         });
@@ -56,25 +53,19 @@ public class MainActivity extends AppCompatActivity {
     void singIn(){
         Intent singInIntention = gsc.getSignInIntent();
         startActivityForResult(singInIntention, 20);
-        Toast.makeText(this, "singIn", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode,Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Toast.makeText(this, "Inicio", Toast.LENGTH_SHORT).show();
         if(requestCode == 20){
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
-                Toast.makeText(this, "\"On activity result começo do try\"", Toast.LENGTH_SHORT).show();
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 firebaseAuth(account.getIdToken());
-                Toast.makeText(this, "On activity result final do try", Toast.LENGTH_SHORT).show();
             }catch (ApiException e){
-                Toast.makeText(this, "Algo deu errado "+e.toString(), Toast.LENGTH_SHORT).show();
                 System.out.println(e.toString());
             }catch (Exception e){
-                Toast.makeText(this, "Algo deu errado2 "+e.toString(), Toast.LENGTH_SHORT).show();
                 System.out.println(e.toString());
             }
         }
@@ -93,10 +84,9 @@ public class MainActivity extends AppCompatActivity {
                     map.put("nome", user.getDisplayName());
                     map.put("email", user.getEmail());
                     navigateToSecondActivity();
-                    Toast.makeText(MainActivity.this, "Firebase auth", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    Toast.makeText(MainActivity.this, "Firebase auth deu errado", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Algo deu errado", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -104,8 +94,7 @@ public class MainActivity extends AppCompatActivity {
 
     void navigateToSecondActivity(){
         finish();
-        Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+        Intent intent = new Intent(MainActivity.this, PrincipalActivity.class);
         startActivity(intent);
-        Toast.makeText(this, "Ir para outra página", Toast.LENGTH_SHORT).show();
     }
 }
